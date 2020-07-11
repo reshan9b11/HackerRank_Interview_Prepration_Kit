@@ -1,0 +1,42 @@
+int minimumSwaps(vector<int> arr) {
+int result=0;
+// int n=arr.size();
+// for(int i=0;i<n;i++){   /// //// // / / / / / / / / Navie approach will not pass 4 cases due to time complexity
+//         if(arr[i]!=i+1){
+//             for(int j=i;j<n;j++){
+//                 if(arr[j]==i+1){
+//                     arr[j]=arr[i];
+//                     arr[i]=i+1;
+//                     result++;
+//                     break;
+
+//                 }
+
+//             }
+
+//         }
+
+
+// }
+
+int i=1,n=arr.size();     // in this approach i increase the counter when index i will not be equal to arr[i], we have only two scenario either index is equal or 
+                          // it is not so max of  2* size of array times while loop will run.
+while(i<=n)
+{
+int j=arr[i-1];
+
+if(i!=j){
+int t=arr[j-1];
+arr[j-1]=arr[i-1];
+arr[i-1]=t;
+
+result++;
+}
+else{
+    i++;
+}
+
+
+}
+return result;
+}
